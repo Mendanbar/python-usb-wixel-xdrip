@@ -59,7 +59,7 @@ remoteHosts = ""
 # and then all received data will be relayed to a parakeet app engine instance which is good for bypassing
 # network address translation etc. App engine software is at: https://github.com/jamorham/Parakeet-App-Engine
 
-parakeet_url = ""
+parakeet_url = "https://wixel-receiver.appspot.com/receiver.cgi"
 parakeet_passcode = "12345"
 
 # If you wired your wixel directly to the serial pins of the raspberry Pi set this to True

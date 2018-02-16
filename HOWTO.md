@@ -10,7 +10,7 @@ Make sure packages are installed:
 
 Download the usb wixel python code:
 
-`git clone https://github.com/jamorham/python-usb-wixel-xdrip.git`
+`git clone https://github.com/Mendanbar/python-usb-wixel-xdrip.git`
 
 `cd python-usb-wixel-xdrip`
 
