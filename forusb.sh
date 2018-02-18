@@ -42,7 +42,7 @@ if [ ! -s python-usb-wixel.py ]
 then
 echo "We do not appear to be in a folder containing python-usb-wixel.py"
 echo
-echo "Do you need to do: git clone https://github.com/jamorham/python-usb-wixel-xdrip.git "
+echo "Do you need to do: git clone https://github.com/Mendanbar/python-usb-wixel-xdrip.git "
 echo
 exit
 fi
@@ -65,33 +65,33 @@ fi
 cd wixel-xDrip
 
 
-echo "Configuring source code for USB use"
-echo
+# echo "Configuring source code for USB use"
+# echo
 
-read -p "Please enter your dexcom transmitter number, eg: ABCDE: " x
+# read -p "Please enter your dexcom transmitter number, eg: ABCDE: " x
 
-if [ ${#x} != 5 ]
-then
-echo "Transmitter ID wasn't 5 characters long, this looks wrong - exiting"
-exit
-fi
+# if [ ${#x} != 5 ]
+# then
+# echo "Transmitter ID wasn't 5 characters long, this looks wrong - exiting"
+# exit
+# fi
 
-echo
-echo "Reconfiguring..."
+# echo
+# echo "Reconfiguring..."
 
-echo
+# echo
 
-if [ ! -f apps/dexdrip/dexdrip.orig ]
-then
-echo "Making backup to dexdrip.orig"
-cat apps/dexdrip/dexdrip.c >apps/dexdrip/dexdrip.orig
-else
-echo "Restoring original from dexdrip.orig"
-cat apps/dexdrip/dexdrip.orig >apps/dexdrip/dexdrip.c
-fi
+# if [ ! -f apps/dexdrip/dexdrip.orig ]
+# then
+# echo "Making backup to dexdrip.orig"
+# cat apps/dexdrip/dexdrip.c >apps/dexdrip/dexdrip.orig
+# else
+# echo "Restoring original from dexdrip.orig"
+# cat apps/dexdrip/dexdrip.orig >apps/dexdrip/dexdrip.c
+# fi
 
-cat apps/dexdrip/dexdrip.c >apps/dexdrip/dexdrip.tmp
-sed <apps/dexdrip/dexdrip.tmp >apps/dexdrip/dexdrip.c -e "s/ = \"ABCDE\";/ = \"${x}\";/g" -e "s/BIT use_gsm = 1;/BIT use_gsm = 0;/g"
+# cat apps/dexdrip/dexdrip.c >apps/dexdrip/dexdrip.tmp
+# sed <apps/dexdrip/dexdrip.tmp >apps/dexdrip/dexdrip.c -e "s/ = \"ABCDE\";/ = \"${x}\";/g" -e "s/BIT use_gsm = 1;/BIT use_gsm = 0;/g"
 
 echo
 echo "Compiling wixel firmware: PLEASE WAIT"
