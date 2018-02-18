@@ -50,7 +50,7 @@ fi
 if [ ! -d wixel-xDrip ]
 then
 echo "Downloading wixel firmware"
-git clone https://github.com/jamorham/wixel-xDrip
+git clone https://github.com/Mendanbar/wixel-xDrip
 echo
 fi
 
