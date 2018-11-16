@@ -31,3 +31,41 @@ Using `raspberry.local:50005` may not work on all android devices, if it doesn't
 
 After reboot you can check the script is running with:
 `sudo screen -r wixel`
+
+#How to change the transmitter#
+
+Make note of the new transmitter ID on the back of the box/device
+
+Open the wixel-xDrip github project
+
+on line 139 of apps/dexdrip/dexdrip.c, change it to:
+static CODE const char transmitter_id[] = "XXXXX";
+where XXXXX is the new id you noted above
+
+log in to each of the RpiWixels [currently fullpageos and zeroWixel]
+
+'ssh [rpi_name] -l [login]'
+
+clear the wixel-xDrip dir and rebuild
+
+cd python-usb-wixel-xdrip
+rm -rf wixel-xDrip
+sh forusb.sh
+
+If prompted, enter the new transmitter ID again
+
+SUCCESS, we have a working wixel!  Now to swap out the transmitter.
+
+Stop the sensor on the classic dexcom receiver
+
+scroll down to settings> transmitter id and input the new one
+
+replace the old transmitter with the new
+
+Finally, change the source in the xDrip android app ( in 'List of Receivers') to:
+http://wixel-receiver.appspot.com/XXXXX/12345/json.get
+
+where XXXXX is the new transmitter id
+
+Now you should start getting readings in xDrip 
+
